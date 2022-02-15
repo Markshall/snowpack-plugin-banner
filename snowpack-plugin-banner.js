@@ -8,7 +8,14 @@ module.exports = (snowpackConfig, pluginOptions) => {
       if (isDev) return contents;
       if (![".js", ".css"].includes(fileExt)) return contents;
 
-      const { banner, position = "top", include = [] } = pluginOptions;
+      const {
+        banner,
+        position = "top",
+        include = [],
+        exclude = [],
+      } = pluginOptions;
+
+      if (exclude?.length && exclude.includes(filePath)) return contents;
 
       const bannerContents = getFileContents(contents, banner, position);
 
