@@ -17,6 +17,7 @@ This plugin uses the `dedent` package under the hood, so you don't need to worry
 | banner   | string |                         | The comment you want adding to your file.                                 |
 | position | string | `top \| bottom` / `top` | Decide whether to add the comment to the top or bottom of the file.       |
 | include  | array  | `[string]` / `[]`       | A list of files to add the comment to, relative to your public directory. |
+| exclude  | array  | `[string]` / `[]`       | A list of files to ignore, relative to your public directory.             |
 
 ## Usage
 
@@ -56,6 +57,27 @@ module.exports = {
           */
       `,
       include: ['app.js', 'styles.css', 'utils.js']
+    }
+  ]
+  // ...
+}
+```
+
+### Add to all files, but exclude a subset
+
+```js
+// snowpack.config.js
+module.exports = {
+  // ...
+  plugins: [
+    ['snowpack-plugin-banner', {
+      banner: `
+        /**
+          * Copyright (c) my company 2022
+          * LICENSE: MIT
+          */
+      `,
+      exclude: ['utils.js']
     }
   ]
   // ...
