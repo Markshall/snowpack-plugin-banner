@@ -1,6 +1,6 @@
 {
   "name": "snowpack-plugin-banner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Add comments to the production asset files (JS/CSS) of your Snowpack build.",
   "main": "snowpack-plugin-banner.js",
   "scripts": {
